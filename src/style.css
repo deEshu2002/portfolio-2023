@@ -1,20 +1,27 @@
 :root {
   font-family: "Roboto Condensed", sans-serif;
-  --heading-font-size: 8rem;
-  --sub-heading-font-size: 1.25rem;
-  --base-font-size: 1rem;
+
+  --sub-heading-font-size: 1.25rem; /* change to 2vmins when size changes for tablet */
+
+  --base-font-size: 1rem; /* change to 1.25vh when size changes for tablet */
+
   --base-font-weight: 400;
   --bold-font-weight: 700;
+
   --base-line-height: 1.25;
+
   --base-color: hsl(0, 0%, 0%);
   --base-accent-color: hsl(45, 22%, 93%);
-  --nav-x-margin: 3rem;
-  --heading-x-margin: 2.5rem;
-  --nav-menu-margin: 1.75rem;
+
+  --x-margin: 3rem;
+  --nav-menu-margin: 1.75em;
+
   --nav-top-margin: 2.5rem ;
+  --message-top-margin: 3.625rem;
+  --message-para-top-margin: 3.25rem;
+
   --card-margin: 1.375rem;
   --para-letter-spacing: 0.055rem;
-  --para-spacing: 3rem;
   --card-width: 14vw;
   --card-height: 50vh;
   --card-border-radius: 8rem;
@@ -82,12 +89,19 @@ h1 {
   font-size: var(--heading-font-size);
 }
 
+p{
+  line-height: var(--base-line-height);
+  letter-spacing: 0.025em;
+}
+
+
+
 /* Navbar styling start*/
 .navbar {
   display: flex;
   justify-content: space-between;
   height: fit-content;
-  margin: var(--nav-top-margin) var(--nav-x-margin) 0 var(--nav-x-margin);
+  margin: var(--nav-top-margin) var(--x-margin) 0 var(--x-margin);
 }
 
 .logo{
@@ -160,113 +174,71 @@ input[type="checkbox"] {
 
 .message{
   display: flex;
-  margin: 2rem var(--heading-x-margin) 0 var(--heading-x-margin);
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 var(--x-margin) 0 var(--x-margin);
 }
 
-.message .designer-para,.message .developer-para{
-  width: 55%;
-  margin-top: .625rem;
+.message-heading{
+  content: url(public/DESIGNER\ DEVELOPER.svg);
+  background-repeat: no-repeat;
+  width: calc(100vw- var(--x-margin));
+  height: fit-content;
+  margin-top: var(--message-top-margin);
 }
 
-.dot{
+.message-para{
+  display: flex;
+  gap: calc(21.4vw);
   position: relative;
 }
 
-.dot span{
-  width: var(--sub-heading-font-size);
-  height: var(--sub-heading-font-size);
-  background-color: #000000;
-  position: absolute;
-  left: -1.2rem;
-  top: 4.4rem;
-  border-radius: var(--sub-heading-font-size);
-}
-
-.designer >p, .developer {
-  padding-left: .5rem;
+.message-para p{
+  margin-top: var(--message-para-top-margin);
+  width: 44ch;
+  font-size: var(--base-font-size);
   font-weight: var(--bold-font-weight);
-  letter-spacing: var(--para-letter-spacing);
-  hyphens: auto;
+  line-height: var(--base-line-height);
+  align-items: baseline;
+  height: 75px;
 }
 
-.developer-content >p{
-  padding-left: 1.05rem;
-}
-
-
-.developer h1{
-  text-align: end;
-}
-
-
-.developer .developer-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.developer-content .connect {
-  display: flex;
-  align-items: flex-end;
-}
-
-.connect p{
+.message-para p .connect{
+  position: absolute;
+  right: 2%;
   font-size: var(--sub-heading-font-size);
-  font-weight: var(--bold-font-weight);
-  margin-right: .315rem;
-  position: relative;
-  cursor: pointer;
 }
 
-.connect p::before {
-        content: ""; 
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: black;
-        visibility: visible;
-        -webkit-transform: translateX(0%);
-        transform: translateX(0%);
-        -webkit-transition: all 0.3s ease 0s; 
-        transition: all 0.3s ease 0s; 
-}
-
-.connect p::after{
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  bottom:0;
-  left: 100%;
+.message-para p .connect::after{
+ content: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9991 2.04344C14.023 1.49167 13.5952 1.02493 13.0434 1.00094L4.05193 0.610009C3.50017 0.586019 3.03343 1.01386 3.00944 1.56563C2.98545 2.11739 3.41329 2.58413 3.96506 2.60812L11.9575 2.95562L11.61 10.9481C11.586 11.4998 12.0139 11.9666 12.5656 11.9906C13.1174 12.0146 13.5841 11.5867 13.6081 11.0349L13.9991 2.04344ZM1.67572 13.7372L13.6757 2.73715L12.3243 1.26285L0.324275 12.2628L1.67572 13.7372Z' fill='black'/%3E%3C/svg%3E%0A");
+  position: absolute; 
+  margin-left: 6px;
+  transition: all 0.3s ease 0s;
+  transform: rotate(0%);
   background-color: #fff;
+  transform-origin: center;
 }
-
-
-.connect p:hover::before {
-  visibility: hidden;
-  transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-}
-
-
-.connect svg{
-  width: 1rem;
-  height: 1rem;
-  margin-bottom: .6rem;
-  will-change: transform;
-}
-
-
-.connect p:hover + svg{
+.message-para p .connect:hover::after{
   transform: rotate(45deg);
-  transition: transform .4s ease 0s ;
+  
 }
 
-.connect p:not(:hover) + svg{
-  transform: rotate(0deg);
-  transition: transform .4s ease 0s;
+
+.message-para p a::before{
+  content: "";
+  width: 105px;
+  height: 2px;
+  background-color: #000;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
 }
+
+.message-para p a:hover::before{
+  width: 0;
+}
+
 
 
 /* work preview  parallax starts here  */
@@ -319,7 +291,7 @@ input[type="checkbox"] {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   visibility: hidden;
-  transition-delay: 450ms;
+  transition-delay: 300ms;
 }
 
 .item-hints .hint:hover::before{

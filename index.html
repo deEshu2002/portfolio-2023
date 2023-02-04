@@ -1,201 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/deeshu.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Deeshu</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <!-- LOGO -->
-      <div class="logo">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 32 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 0H15C24.3888 0 32 7.61116 32 17V17C32 26.3888 24.3888 34 15 34H0V0Z"
-            fill="black"
-            fill-opacity="0.7"
-          />
-        </svg>
-      </div>
 
-      <ul class="nav-links">
-        <!-- USING CHECKBOX HACK -->
-        <input type="checkbox" id="checkbox_toggle" />
-        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/deeshu.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Deeshu</title>
+</head>
 
-        <!-- NAVIGATION MENUS -->
-        <div class="menu">
-          <li class="work"><a href="/">Work</a></li>
-
-          <li><a href="/">About</a></li>
-
-          <li class="resources">
-            <a href="/">Resources</a>
-          </li>
-
-          <li><a href="/">Contact</a></li>
-        </div>
-      </ul>
-    </nav>
-
-    <div class="message">
-      <div class="designer">
-        <h1>DESIGNER</h1>
-        <p class="designer-para">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
-          laboriosam. Libero impedit, necessitatibus numquam explicabo
-          architecto quaerat minus?
-        </p>
-      </div>
-      <div class="dot">
-        <span></span>
-      </div>
-      <div class="developer">
-        <h1>DEVELOPER</h1>
-        <div class="developer-content">
-          <p class="developer-para">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
-            laboriosam. Libero impedit, necessitatibus numquam explicabo
-            architecto quaerat minus?
-          </p>
-          <div class="connect">
-            <p>Get In Touch</p>
-            <svg
-              width="100%"
-              height="100%"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.9991 2.04344C14.023 1.49167 13.5952 1.02493 13.0434 1.00094L4.05193 0.610009C3.50017 0.586019 3.03343 1.01386 3.00944 1.56563C2.98545 2.11739 3.41329 2.58413 3.96506 2.60812L11.9575 2.95562L11.61 10.9481C11.586 11.4998 12.0139 11.9666 12.5656 11.9906C13.1174 12.0146 13.5841 11.5867 13.6081 11.0349L13.9991 2.04344ZM1.67572 13.7372L13.6757 2.73715L12.3243 1.26285L0.324275 12.2628L1.67572 13.7372Z"
-                fill="black"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+<body>
+  <nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <svg width="100%" height="100%" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0H15C24.3888 0 32 7.61116 32 17V17C32 26.3888 24.3888 34 15 34H0V0Z" fill="black"
+          fill-opacity="0.7" />
+      </svg>
     </div>
 
-    <!-- default prev percentage set as per css default - transsition in x  -->
-    <div
-      class="work-preview"
-      data-mouse-at="0"
-      data-prev-percentage="-6.5" 
-      autofocus
-    >
-      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
+    <ul class="nav-links">
+      <!-- USING CHECKBOX HACK -->
+      <input type="checkbox" id="checkbox_toggle" />
+      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
-      </div>      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
-        draggable="false"
-      />
+      <!-- NAVIGATION MENUS -->
+      <div class="menu">
+        <li class="work"><a href="/">Work</a></li>
 
-      </div>      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
+        <li><a href="/">About</a></li>
 
-      </div>      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
+        <li class="resources">
+          <a href="/">Resources</a>
+        </li>
 
-      </div>      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
-
-      </div>      <div class="item-hints">
-<div class="hint">
-  <div class="hint-content">
-    <p>2005</p>
-  </div>
-</div><img
-        class="image"
-        src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80"
-        draggable="false"
-      />
+        <li><a href="/">Contact</a></li>
       </div>
-      
-      
+    </ul>
+  </nav>
 
-      <div class="item-hints">
-        <div class="hint">
-          <div class="hint-content">
-            <p>2003</p>
-          </div>
-        </div> 
-     <img
-        class="image"
-        src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80public/image 7.png"
-        draggable="false"
-      />
-      </div>
+  <div class="message">
+    <div class="message-heading"></div>
+    <div class="message-para">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
+        laboriosam. Libero impedit, necessitatibus numquam explicabo
+        architecto quaerat minus?</p>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad,
+        laboriosam. Libero impedit, necessitatibus numquam explicabo
+        architecto quaerat minus? <a href="#" class="connect">Get In Touch</a></p>
+    </div>
+  </div>
 
-      <div class="item-hints">
-        <div class="hint">
-          <div class="hint-content">
-            <p>2002</p>
-          </div>
+  <!-- default prev percentage set as per css default - transsition in x  -->
+  <div class="work-preview" data-mouse-at="0" data-prev-percentage="-6.5" autofocus>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
         </div>
-      <img
-        class="image"
-        src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        draggable="false"
-      />
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        draggable="false" />
 
+    </div>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
+        </div>
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
+        draggable="false" />
+
+    </div>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
+        </div>
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        draggable="false" />
+
+    </div>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
+        </div>
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        draggable="false" />
+
+    </div>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
+        </div>
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        draggable="false" />
+
+    </div>
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2005</p>
+        </div>
+      </div><img class="image"
+        src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80"
+        draggable="false" />
+    </div>
+
+
+
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2003</p>
+        </div>
       </div>
-            
-      
+      <img class="image"
+        src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80public/image 7.png"
+        draggable="false" />
+    </div>
 
-      
+    <div class="item-hints">
+      <div class="hint">
+        <div class="hint-content">
+          <p>2002</p>
+        </div>
+      </div>
+      <img class="image"
+        src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        draggable="false" />
+
+    </div>
+
+
+
+
     <script type="module" src="/src/main.ts"></script>
-  </body>
+</body>
+
 </html>
