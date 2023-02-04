@@ -250,7 +250,7 @@ input[type="checkbox"] {
   display: flex;
   gap: var(--card-margin);
   user-select: none;
-  transform: translate(-6.5vw,0);
+  transform: translate(-7.2vw,0);
   will-change: all;
 }
 

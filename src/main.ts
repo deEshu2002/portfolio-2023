@@ -20,6 +20,7 @@ function changeLayout(deltaPercentage:number){
   const unconstrainedPercentage = deltaPercentage + parseInt(prevPercentage);
   const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 3), -22);
   track!.dataset.percentage = `${nextPercentage}`;
+  console.log(nextPercentage)
 
   track?.animate({
         transform: `translate(${nextPercentage}%, 0)`, animationTimingFunction:`ease-in`
