@@ -18,7 +18,7 @@ function changeLayout(deltaPercentage:number){
 
   const prevPercentage = track!.dataset.prevPercentage as string;
   const unconstrainedPercentage = deltaPercentage + parseInt(prevPercentage);
-  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 3), -22);
+  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 3), -21);
   track!.dataset.percentage = `${nextPercentage}`;
   console.log(nextPercentage)
 

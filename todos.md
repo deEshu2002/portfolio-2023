@@ -1,0 +1,1 @@
+-[x] make gap between paragraph responsive to width;<br /> -[ ] make hint floating intact and responsive to dimentions <br /> -[ ] make cards responsive to width and device <br /> -[ ] make base text and sub-heading responsive <br /> -[ ] provide max-width to make it responsive <br /> -[ ] add logo hover::after effect<br />
