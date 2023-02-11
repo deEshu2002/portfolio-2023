@@ -70,7 +70,7 @@ body{
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -267,6 +267,8 @@ input[type="checkbox"] {
 
 .window{
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: var(--card-width);
   height: var(--card-height);
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
@@ -274,7 +276,6 @@ input[type="checkbox"] {
   bottom: 0;
 
 }
-
 
 
 .image{

@@ -1,59 +1,96 @@
 import './style.css'
-import handleWorkParallax from './handleWorkParallax';
-import cardCoverWindow from './cardCoverWindow';
+
+import {handleDownEvent,handleUpEvent, handleTrackMove} from './handleWorkParallax';
 
 
-window.onload = (e) => handleWorkParallax();
-
-
-const card = document.getElementById('four');
+const track = document.querySelector<HTMLDivElement>('.work-preview');
 const wnds = document.querySelectorAll('.window');
-const track = document.querySelector('.work-preview');
-const nav = document.querySelector('.navbar');
-const message = document.querySelector('.message');
 
+let giveMaxMin = false;
 
-window.onwheel = (e:WheelEvent) => {
-  if(e.deltaY < 0 ){
-    //
-  }
-  else{
-   
-    const middle = window.innerWidth/2;
-
-    // nav?.animate({width:'0px', height:'0px'}, {duration:1100, fill: 'forwards'})
-    // message?.animate({width:'0px', height:'0px'}, {duration:1100, fill: 'forwards'})
-
-
-  wnds.forEach((elem, idx) => {
-
-    const prop = elem.getBoundingClientRect();
-    
-
-    
-    if( idx < 3){
-      elem.animate({width:`0vw`, height:`0vh`,  borderRadius: `0 0 0 0`}, {duration: 1200, fill: 'forwards'})
-    elem.animate({postion: 'fixed'}, {duration:0, delay:1300, fill:'forwards'})
-    }
-    if(idx === 3){
-
-    elem.animate({width:`105vw`, height:`100vh`,}, {duration:1200, fill:'forwards'})
-    
-      
+function scaleDiv(id:number = 3, delay:number=0){
+  giveMaxMin = false;
+  wnds.forEach((win, idx) => {
+    const container = win as HTMLDivElement;
+    if(idx !== id){
+      container.style.zIndex = `10`;
+      container.animate({width:`0vw`, height:`0vh`,  borderRadius: `0 0 0 0`, animationTimingFunction:`cubic-bezier(0.32, 0, 0.67, 0)`}, {delay:delay,duration: 700, fill: 'forwards'})
+      container.animate({position:`fixed`},{duration:0, delay:700+delay, fill:'forwards'});
     }
     else{
-      elem.animate({width:`0vw`, height:`0vh`,borderRadius: `0 0 0 0`}, {duration: 1200, fill: 'forwards'})
-    elem.animate({postion: 'fixed'}, {duration:0, delay:1300, fill:'forwards'})
+      win.animate({position:'fixed',animationTimingFunction:`cubic-bezier(0.5, 1, 0.89, 1)`}, {duration:0, fill: 'forwards', delay:50+delay})
+      win.animate({width:`105vw`, height:`96vh`,}, {delay:delay, duration:600, fill:'forwards'})
     }
 
-    // track?.animate({overflow:'hidden',gap:`0`}, {duration:100, fill:'forwards'})
-
-
-    
-
-
   })
-    
+}
 
+function handleScaling(e:WheelEvent){
+  if(e.deltaY < 0){
+  }
+  else{
+   scaleDiv();
   }
 }
+
+
+
+const subEvents = () => {
+
+track?.addEventListener("mousemove", (e)=>{
+  const value = (giveMaxMin)?50:0;
+  handleTrackMove(-e.clientX,-value,value)
+},true)
+
+track?.addEventListener("mouseenter", (e) => {
+  handleDownEvent(-e.clientX);
+},true)
+
+track?.addEventListener("mouseleave", (e) => {
+   handleUpEvent();
+},true)
+
+track?.addEventListener("touchstart", (e) => {
+  handleDownEvent(e.touches[0].clientX);
+},true)
+
+track?.addEventListener("touchmove", (e) => {
+  const value = (giveMaxMin)?50:0;
+  handleTrackMove(e.touches[0].clientX,value,value);
+},true)
+
+track?.addEventListener("touchend", (e) => {
+  const value = (giveMaxMin)?50:0;
+  handleTrackMove(e.touches[0].clientX, value, value);
+},true);
+}
+
+
+window.onload = e =>{
+  giveMaxMin = true;
+  subEvents();
+}
+
+window.addEventListener("wheel", function(e){
+  handleScaling(e);
+}, {once:true})
+
+
+wnds.forEach((elem, idx) => {
+  elem.addEventListener("click", function(){
+
+    const left =  elem.getBoundingClientRect().left + (elem.getBoundingClientRect().width)/2 +40; 
+
+    const offPercentage = (((window.innerWidth/2)-left)*100)/window.innerWidth;
+
+    track?.animate({
+        transform: `translate(0, 0)`, animationTimingFunction:`cubic-bezier(0.5, 1, 0.89, 1)`
+      }, {duration: 200, fill:'forwards'});
+    
+    scaleDiv(idx, 200);
+
+
+  }, true);
+})
+
+  

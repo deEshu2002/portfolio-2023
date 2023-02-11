@@ -1,26 +1,16 @@
 
 
-export default function handleWorkParallax(){
     
 const track = document.querySelector<HTMLDivElement>('.work-preview');
 const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
 
 
-const handleDownEvent = (e:number) => {
-    track!.dataset.mouseAt = `${e}`;
-};
 
-const handleUpEvent = () => {
-
-  track!.dataset.mouseAt = "0";
-  track!.dataset.prevPercentage = `${track!.dataset.percentage}`;
-}
-
-function changeLayout(deltaPercentage:number){
+ function changeLayout(deltaPercentage:number,maxLeft:number=-15,maxRight:number=20){
 
   const prevPercentage = track!.dataset.prevPercentage as string;
   const unconstrainedPercentage = deltaPercentage + parseInt(prevPercentage);
-  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 15), -15);
+  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, maxRight), maxLeft);
   track!.dataset.percentage = `${nextPercentage}`;
 
   track?.animate({
@@ -36,7 +26,19 @@ function changeLayout(deltaPercentage:number){
       })
 }
 
-const handleTrackMove = (e:number) => {
+
+export const handleDownEvent = (e:number) => {
+    track!.dataset.mouseAt = `${e}`;
+};
+
+export const handleUpEvent = () => {
+
+  track!.dataset.mouseAt = "0";
+  track!.dataset.prevPercentage = `${track!.dataset.percentage}`;
+}
+
+
+export function  handleTrackMove(e:number, maxLeft:number, maxRight:number){
   if(track!.dataset.mouseAt === '0' ) return;
 
   const initialTrack = track!.dataset.mouseAt as any; 
@@ -44,21 +46,8 @@ const handleTrackMove = (e:number) => {
 
   const deltaPercentage = delta*50;
 
-   changeLayout(deltaPercentage);
+   changeLayout(deltaPercentage, maxLeft,maxRight);
 
 
 }
 
-
-track!.onmousemove = e =>  handleTrackMove(-e.clientX);
-
-track!.onmouseenter = e => handleDownEvent(-e.clientX);
-
-track!.onmouseleave = _ => handleUpEvent();
-
-track!.ontouchstart = e => handleDownEvent(e.touches[0].clientX);
-
-track!.ontouchmove = (e) => handleTrackMove(e.touches[0].clientX);
-
-track!.ontouchend =(e) => handleTrackMove(e.touches[0].clientX);
-}
