@@ -66,7 +66,6 @@
 body{
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -103,6 +102,7 @@ p{
 
 /* Navbar styling start*/
 .navbar {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   height: fit-content;
@@ -262,6 +262,7 @@ input[type="checkbox"] {
   justify-content: center;
   gap: var(--card-margin);
   margin-top: auto;
+  overflow: visible;
 }
 
 .window{
@@ -270,14 +271,20 @@ input[type="checkbox"] {
   height: var(--card-height);
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
   cursor: pointer;
+  bottom: 0;
+
 }
 
+
+
 .image{
+  /* position: absolute; */
+  z-index: 9;
   width: inherit;
   height: inherit;
   border-radius: inherit;
   object-fit: cover;
-  object-position: center center;
+  object-position: center bottom;
 }
 
 .image:hover + .hint .circle{
@@ -302,6 +309,8 @@ input[type="checkbox"] {
   height: 6px;
   border-radius: 100%;
   background-color: #000;
+  transition: all;
+  transition-delay: 150ms;
 }
 
 .line{

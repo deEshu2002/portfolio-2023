@@ -3,7 +3,7 @@
 export default function handleWorkParallax(){
     
 const track = document.querySelector<HTMLDivElement>('.work-preview');
-const images = document.querySelectorAll<HTMLImageElement>('.work-preview .item-hints');
+const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
 
 
 const handleDownEvent = (e:number) => {
@@ -20,17 +20,19 @@ function changeLayout(deltaPercentage:number){
 
   const prevPercentage = track!.dataset.prevPercentage as string;
   const unconstrainedPercentage = deltaPercentage + parseInt(prevPercentage);
-  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 3), -21);
+  const nextPercentage = Math.max(Math.min(unconstrainedPercentage, 15), -15);
   track!.dataset.percentage = `${nextPercentage}`;
 
   track?.animate({
         transform: `translate(${nextPercentage}%, 0)`, animationTimingFunction:`cubic-bezier(0.5, 1, 0.89, 1)`
       }, {duration: 1200, fill:'forwards'});
     
+
       images.forEach((img,idx) => {
         img.animate({
-          backgroundPosition: `${50+nextPercentage}% center`
+          objectPosition: `${50+nextPercentage}% center`
         }, {duration: 1200, fill:'forwards'});
+
       })
 }
 
