@@ -15,13 +15,13 @@ const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
 
   track?.animate({
         transform: `translate(${nextPercentage}%, 0)`, animationTimingFunction:`cubic-bezier(0.5, 1, 0.89, 1)`
-      }, {duration: 1200, fill:'forwards'});
+      }, {duration:900, fill:'forwards'});
     
 
       images.forEach((img,idx) => {
         img.animate({
           objectPosition: `${50+nextPercentage}% center`
-        }, {duration: 1200, fill:'forwards'});
+        }, {duration:900, fill:'forwards'});
 
       })
 }
@@ -42,7 +42,7 @@ export function  handleTrackMove(e:number, maxLeft:number, maxRight:number){
   if(track!.dataset.mouseAt === '0' ) return;
 
   const initialTrack = track!.dataset.mouseAt as any; 
-  const delta = (e - initialTrack)/(window.innerWidth);
+  const delta = (e - initialTrack)/(window.innerWidth/1.4);
 
   const deltaPercentage = delta*50;
 

@@ -27,6 +27,10 @@
   --card-height: 50vh;
   --card-border-radius: 8rem;
   --scroll-width: 0.375rem;
+  --card-after-height:0;
+  --card-after-width:100%;
+
+  --title-x-margin:6vw;
 
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
@@ -49,7 +53,7 @@
     background-color: #fff;
   }
   a:hover {
-    color: #747bff;
+    /* color: #747bff; */
   }
   button {
     background-color: #f9f9f9;
@@ -58,19 +62,12 @@
 
 
 *, *::before,*::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body{
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 a {
@@ -79,9 +76,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
- 
-}
 
 li {
   list-style: none;
@@ -99,6 +93,18 @@ p{
 }
 
 
+#app{
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-weight: var(--bold-font-weight);
+
+}
+
+
+
 
 /* Navbar styling start*/
 .navbar {
@@ -107,6 +113,7 @@ p{
   justify-content: space-between;
   height: fit-content;
   margin: var(--nav-top-margin) var(--x-margin) 0 var(--x-margin);
+  
 }
 
 .logo{
@@ -119,6 +126,8 @@ p{
   display: flex;
   gap: var(--nav-menu-margin);
   position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .menu li:hover {
@@ -262,7 +271,6 @@ input[type="checkbox"] {
   justify-content: center;
   gap: var(--card-margin);
   margin-top: auto;
-  overflow: visible;
 }
 
 .window{
@@ -274,8 +282,22 @@ input[type="checkbox"] {
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
   cursor: pointer;
   bottom: 0;
-
+  text-decoration: none;
 }
+
+
+.window::after{
+  content: "";
+  position: absolute;
+  width: var(--card-after-width);
+  height: var(--card-after-height);
+  background-color: var(--base-accent-color);
+  z-index: 100;
+  border-radius: inherit;
+  bottom: 0;
+  transition: all 1s;
+}
+
 
 
 .image{
@@ -296,8 +318,8 @@ input[type="checkbox"] {
 .hint{
   display: flex;
   position: absolute;
-  top: -3.5%;
-  right: 10%;
+  top: -2.5%;
+  right: 18%;
   z-index: 10;
 }
 
@@ -305,7 +327,7 @@ input[type="checkbox"] {
   visibility: hidden;
   display: block;
   position: absolute;
-  bottom: -5%;
+  top: 82%;
   width:6px;
   height: 6px;
   border-radius: 100%;
@@ -341,12 +363,152 @@ input[type="checkbox"] {
 
 .hint-content{
   font-weight: 400;
-  position: relative;
+  position: absolute;
+  top: -70%;
+  right: -115%;
   margin-left: 3px;
   opacity: 0;
   transition: opacity 300ms ease 250ms;
 }
 
 .image:hover + .hint .hint-content{
+  opacity: 1;
+}
+
+
+#work {
+  width: 98%;
+  height: 100%;
+  margin: 1vw;
+  font-weight: var(--bold-font-weight);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+
+code{
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 0.3rem;
+    padding: 5px 8px ;
+}
+
+#background-image{
+  margin-top: 1vh;
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 1.5vw;
+  box-shadow: inset 0 -2px 4px 0 rgb(0 0 0 / 0.5);
+}
+
+
+.work-view-nav{
+  display: flex;
+  justify-content: space-between;
+  height: 0;
+  font-size: var(--sub-heading-font-size);
+  position: sticky;
+  top: 0;
+  opacity: 0;
+}
+
+#title{
+  margin: 0 var(--title-x-margin) 0 var(--title-x-margin);
+  display: flex;
+  position: relative;
+}
+
+.heading{
+  font-size: 128px;
+  line-height: 100px;
+}
+
+.heading span{
+  position: relative;
+  display: inline-block;
+  transform: translate(0,100%);
+  rotate: 10deg;
+}
+
+#title h6{
+  font-size: var(--sub-heading-font-size);
+  margin: 10vh 0 0 8px;
+  opacity: 0;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  margin: 8vw;
+  align-items: center;
+}
+
+#overview{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#overview .overview-img{
+  width: 42vw;
+  border-radius: .5vw;
+}
+
+.description p{
+  margin: 5vh 0 4vh 0;
+  width: 37ch;
+}
+
+.description p span{
+  display: inline-block;
+}
+
+.tools{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+
+.product-img{
+  width: 60vw;
+  margin-top: 25vh;
+  border-radius: 1vw;
+}
+
+.fadeInUp{
+  animation:fadeInUp 1.2s ease 100ms forwards;
+}
+
+@keyframes fadeInUp {
+  0%{
+    transform: translate(0px, 50px);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+#title::after{
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 70%;
+  height: 9rem;
+  transform: translate(-5%,130%);
+  z-index: 10;
+}
+
+.hidden{
+  opacity: 0;
+  transition-delay: 100ms;
+}
+
+.show{
   opacity: 1;
 }

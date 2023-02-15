@@ -1,1 +1,3 @@
 -[x] make gap between paragraph responsive to width;<br /> -[x] make hint floating intact and responsive to dimentions <br /> -[x] make cards responsive to width and device <br /> -[ ] make base text and sub-heading responsive <br /> -[ ] provide max-width to make it responsive <br /> -[ ] add logo hover::after effect
+
+-[ ] reset the track if moved using mouse movement
