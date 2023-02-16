@@ -44,11 +44,11 @@ function animateHeading() {
     heading.appendChild(letterSpan);
 
     letterSpan.animate({ transform: `translate(0,0) `, animationTimingFunction: `cubic-bezier(0.87, 0, 0.13, 1)` }, { duration: 850, fill: 'forwards', delay: i * 150 + 1000 })
-    letterSpan.animate({ transform: `rotate(-10deg)`, animationTimingFunction: `cubic-bezier(0.87, 0, 0.13, 1)` }, { duration: 750, fill: 'forwards', delay: i * 150 + 1000 })
+    letterSpan.animate({ transform: `rotate(-15deg)`, animationTimingFunction: `cubic-bezier(0.87, 0, 0.13, 1)` }, { duration: 750, fill: 'forwards', delay: i * 150 + 1000 })
   }
 
   let superscript = heading.nextElementSibling as HTMLHeadingElement;
-  superscript.animate({ transform: `translate(0,-5%)`, opacity: 1 }, { duration: 300, fill: 'forwards', delay: (words.length - 1) * 275 + 1000 });
+  superscript.animate({ transform: `translate(0,-5%)`, opacity: 1 }, { duration: 300, fill: 'forwards', delay: (words.length - 1) * 250 + 1000 });
 
 }
 
@@ -62,7 +62,6 @@ function toggleNav(){
     // downscroll code
     imageContainer?.animate({ height: `60vh` }, { duration: 1200, fill: 'forwards' })
     nav?.animate({ opacity: 1, height: `30px`, padding: '1.5rem 1rem ', zIndex: 100 }, { duration: 1200, fill: 'forwards' });
-    console.log(nav.clientHeight)
   }
   else if (st < lastScrollTop) {
 

@@ -419,6 +419,7 @@ code{
   margin: 0 var(--title-x-margin) 0 var(--title-x-margin);
   display: flex;
   position: relative;
+  
 }
 
 .heading{
@@ -429,8 +430,8 @@ code{
 .heading span{
   position: relative;
   display: inline-block;
-  transform: translate(0,100%);
-  rotate: 10deg;
+  transform: translateY(150%);
+  rotate: 15deg;
 }
 
 #title h6{
@@ -459,7 +460,7 @@ code{
 
 .description p{
   margin: 5vh 0 4vh 0;
-  width: 37ch;
+  width: 45ch;
 }
 
 .description p span{
@@ -485,7 +486,7 @@ code{
 
 @keyframes fadeInUp {
   0%{
-    transform: translate(0px, 50px);
+    transform: translate(0px, 100px);
     opacity: 0;
   }
   100%{
@@ -498,9 +499,9 @@ code{
   content: "";
   position: absolute;
   background-color: white;
-  width: 70%;
+  width: 90%;
   height: 9rem;
-  transform: translate(-5%,130%);
+  transform: translate(-5%,145%);
   z-index: 10;
 }
 
