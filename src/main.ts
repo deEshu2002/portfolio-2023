@@ -17,16 +17,15 @@ history.replaceState({position:1}, '' );
 
 
 
-function handleScaling(e: WheelEvent) {
-  if (e.deltaY < 0) {
-  }
-  else {
-    // scaleDiv();
-    if(new URL(window.location.href).pathname == '/'){
-      pageTransition('/');
-    }
-  }
-}
+// function handleScaling(e: WheelEvent) {
+//   if (e.deltaY < 0) {
+//   }
+//   else {
+//     if(new URL(window.location.href).pathname == '/'){
+//       pageTransition('/');
+//     }
+//   }
+// }
 
 
 
@@ -47,7 +46,7 @@ const subEvents = () => {
     handleDownEvent(-e.clientX);
   }, true)
 
-  track?.addEventListener("mouseleave", (e) => {
+  track?.addEventListener("mouseleave", () => {
     handleUpEvent();
   }, true)
 
@@ -68,12 +67,12 @@ const subEvents = () => {
 
 
 
-window.onload = e => {
+window.onload = () => {
   giveMaxMin = true;
   subEvents();
 }
 
-window.addEventListener("wheel", function (e) {
+window.addEventListener("wheel", function () {
   // handleScaling(e);
 }, { once: true })
 
@@ -88,7 +87,7 @@ function windowClick(e:Event){
 }
 
 
-wnds.forEach((elem, idx) => {
+wnds.forEach((elem) => {
   elem.addEventListener("click", windowClick, true);
 })
 
@@ -99,7 +98,7 @@ const render = async(path:string) => {
   //   elem.removeEventListener("click", windowClick, true);
   // }),10);
       const work = await Routes(path);
-      pageTransition(path);
+      pageTransition();
 
       setTimeout(() => {
       var body = document.querySelector('body');
@@ -116,7 +115,7 @@ const render = async(path:string) => {
       },2001)
 }
         
-window.addEventListener("popstate", e =>{
+window.addEventListener("popstate", () =>{
   const historyPath = new URL(window.location.href).pathname;
       render(historyPath);
     }

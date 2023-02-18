@@ -63,7 +63,7 @@ function maskTransition(){
 
 // 800-> hide, 1800->removeNode
 
-export default function pageTransition(path:string){
+export default function pageTransition(){
  console.log(history.state);
 
   if(history.state.position - 1 === 1){

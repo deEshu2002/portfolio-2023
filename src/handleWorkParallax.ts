@@ -18,7 +18,7 @@ const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
       }, {duration:900, fill:'forwards'});
     
 
-      images.forEach((img,idx) => {
+      images.forEach((img) => {
         img.animate({
           objectPosition: `${50+nextPercentage}% center`
         }, {duration:900, fill:'forwards'});

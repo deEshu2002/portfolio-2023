@@ -1,5 +1,4 @@
 
-import Behaviour from './Behaviour';
 import DynamicHtml from './DynamicHtml';
 import { RouteType } from './DynamicHtml';
 import {home as removedApp} from './main';
