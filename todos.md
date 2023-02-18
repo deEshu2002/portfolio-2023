@@ -13,3 +13,5 @@
 -[ ] reset the track if moved using mouse movement
 
 -[ ] Bug after history API that on rerender doesn't animate window;
+
+-[ ] On reload after changing history goes to default app
