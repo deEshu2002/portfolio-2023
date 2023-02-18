@@ -1,3 +1,15 @@
--[x] make gap between paragraph responsive to width;<br /> -[x] make hint floating intact and responsive to dimentions <br /> -[x] make cards responsive to width and device <br /> -[ ] make base text and sub-heading responsive <br /> -[ ] provide max-width to make it responsive <br /> -[ ] add logo hover::after effect
+-[x] make gap between paragraph responsive to width;
+
+-[x] make hint floating intact and responsive to dimentions
+
+-[x] make cards responsive to width and device
+
+-[x] make base text and sub-heading responsive
+
+-[ ] provide max-width to make it responsive
+
+-[ ] add logo hover::after effect
 
 -[ ] reset the track if moved using mouse movement
+
+-[ ] Bug after history API that on rerender doesn't animate window;
