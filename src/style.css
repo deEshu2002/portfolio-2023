@@ -52,13 +52,19 @@
     color: #000;
     background-color: #fff;
   }
-  a:hover {
-    /* color: #747bff; */
+  .menu a:hover {
+    border-bottom: 2px solid var(--base-accent-color);
   }
   button {
     background-color: #f9f9f9;
   }
 }
+
+
+::selection{
+  background-color: var(--base-accent-color);
+}
+
 
 
 *, *::before,*::after {
@@ -92,6 +98,12 @@ p{
   font-weight: var(--bold-font-weight);
 }
 
+body{
+  display: flex;
+  justify-content: center;
+}
+
+
 
 #app{
   display: flex;
@@ -100,7 +112,7 @@ p{
   height: 100vh;
   width: 100vw;
   font-weight: var(--bold-font-weight);
-
+  max-width: 1920px;
 }
 
 
@@ -122,18 +134,23 @@ p{
   height: 2rem;
 }
 
-.menu {
-  display: flex;
-  gap: var(--nav-menu-margin);
-  position: relative;
+.nav-links{
   margin-top: auto;
   margin-bottom: auto;
 }
 
+.menu {
+  display: flex;
+  gap: var(--nav-menu-margin);
+  position: relative;
+  
+}
+
 .menu li:hover {
   /* background-color: var(--base-accent-color); */
-  transition: 0.3ms ease;
+  transition: 0.3s ease;
 }
+
 
 .menu li:first-child{
   pointer-events: none;
@@ -141,12 +158,13 @@ p{
 }
 
 .menu li:first-child::before{
+  position: absolute;
   content: "";
   left: -3%;
-  width: 1.75rem;
-  height: 100%;
+  top: -30%;
+  width: 1.25rem;
+  height: 90%;
   background-color: var(--base-accent-color);
-  position: absolute;
   z-index: -1;
 }
 
@@ -231,11 +249,11 @@ input[type="checkbox"] {
 }
 
 .message-para p .connect::after{
- content: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9991 2.04344C14.023 1.49167 13.5952 1.02493 13.0434 1.00094L4.05193 0.610009C3.50017 0.586019 3.03343 1.01386 3.00944 1.56563C2.98545 2.11739 3.41329 2.58413 3.96506 2.60812L11.9575 2.95562L11.61 10.9481C11.586 11.4998 12.0139 11.9666 12.5656 11.9906C13.1174 12.0146 13.5841 11.5867 13.6081 11.0349L13.9991 2.04344ZM1.67572 13.7372L13.6757 2.73715L12.3243 1.26285L0.324275 12.2628L1.67572 13.7372Z' fill='black'/%3E%3C/svg%3E%0A");
+ content: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9991 2.04344C14.023 1.49167 13.5952 1.02493 13.0434 1.00094L4.05193 0.610009C3.50017 0.586019 3.03343 1.01386 3.00944 1.56563C2.98545 2.11739 3.41329 2.58413 3.96506 2.60812L11.9575 2.95562L11.61 10.9481C11.586 11.4998 12.0139 11.9666 12.5656 11.9906C13.1174 12.0146 13.5841 11.5867 13.6081 11.0349L13.9991 2.04344ZM1.67572 13.7372L13.6757 2.73715L12.3243 1.26285L0.324275 12.2628L1.67572 13.7372Z' fill='black'/%3E%3C/svg%3E%0A");
   position: absolute; 
   margin-left: 6px;
   transition: all 0.3s ease 0s;
-  transform: rotate(0%);
+  transform: rotate(0);
   background-color: #fff;
   transform-origin: center;
 }
@@ -244,18 +262,19 @@ input[type="checkbox"] {
 }
 
 
-.message-para p a::before{
+.message-para p .connect::before{
   content: "";
+  z-index: -1;
   width: 105px;
   height: 2px;
-  background-color: #000;
+  background-color: black;
   transition: all 0.3s ease 0s;
   position: absolute;
   bottom: 0%;
   right: 0%;
 }
 
-.message-para p a:hover::before{
+.message-para p .connect:hover::before{
   width: 0;
 }
 
@@ -285,7 +304,6 @@ input[type="checkbox"] {
   text-decoration: none;
 }
 
-
 .window::after{
   content: "";
   position: absolute;
@@ -297,8 +315,6 @@ input[type="checkbox"] {
   bottom: 0;
   transition: all 1s;
 }
-
-
 
 .image{
   /* position: absolute; */
@@ -385,6 +401,8 @@ input[type="checkbox"] {
   flex-direction: column;
   padding: 0;
 }
+
+
 
 
 code{
@@ -512,4 +530,16 @@ code{
 
 .show{
   opacity: 1;
+}
+
+#transition-curtain{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--base-accent-color);
+  position: fixed;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: all .8s cubic-bezier(0.16, 1, 0.3, 1);
+  top: 0;
+  left: 0;
 }

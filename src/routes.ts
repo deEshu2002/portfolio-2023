@@ -1,6 +1,9 @@
 
+import Behaviour from './Behaviour';
 import DynamicHtml from './DynamicHtml';
 import { RouteType } from './DynamicHtml';
+import {home as removedApp} from './main';
+
 
 function RenderData(name:RouteType):HTMLDivElement{
         const htmlString = DynamicHtml(name);
@@ -12,12 +15,13 @@ function RenderData(name:RouteType):HTMLDivElement{
 
 export default function Routes(path: string):HTMLDivElement {
     let app;
-
         switch(path){
              case '/':
+                 app = removedApp;
                  break;
              case '/one':
                 app = RenderData('one');
+
                 break;
              case '/two':
                  app = RenderData('two');

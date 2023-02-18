@@ -10,7 +10,7 @@ function HTML(name:RouteType):string{
     <div id="background-image" class="hidden" style="background-image: url(${values.backgroundImage})">  </div>\
     \
     <div class="work-view-nav">\
-      <a id="back" href="#">Back</a>\
+      <a id="back" href="#" onclick=history.back()>Back</a>\
       <a id="source" href="#">\
         <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">\
           <path\
@@ -44,6 +44,7 @@ function HTML(name:RouteType):string{
      \
     </section>\
 \
+      <div id="transition-curtain"></div>\
   </div>`
 }
 

@@ -1,14 +1,20 @@
 import './style.css'
 
-import { handleDownEvent, handleUpEvent, handleTrackMove } from './handleWorkParallax';
-import scaleCardRemoveRoot from './scaleCardRemoveRoot';
+import {handleDownEvent, handleTrackMove, handleUpEvent} from "./handleWorkParallax";
+import pageTransition from './pageTransition';
 import Routes from './routes';
 import Behaviour from './Behaviour';
 
 const track = document.querySelector<HTMLDivElement>('.work-preview');
 const wnds = document.querySelectorAll('.window');
 
-let giveMaxMin = false;
+export let giveMaxMin = false;
+
+
+
+
+history.replaceState({position:1}, '' );
+
 
 
 function handleScaling(e: WheelEvent) {
@@ -16,9 +22,18 @@ function handleScaling(e: WheelEvent) {
   }
   else {
     // scaleDiv();
-    scaleCardRemoveRoot();
+    if(new URL(window.location.href).pathname == '/'){
+      pageTransition('/');
+    }
   }
 }
+
+
+
+
+const firstPage = document.querySelector('#app');
+
+export const home = firstPage!.cloneNode(true);
 
 
 const subEvents = () => {
@@ -52,6 +67,7 @@ const subEvents = () => {
 }
 
 
+
 window.onload = e => {
   giveMaxMin = true;
   subEvents();
@@ -63,42 +79,45 @@ window.addEventListener("wheel", function (e) {
 
 
 
+function windowClick(e:Event){
+  const a = e.currentTarget as HTMLAnchorElement;
+    e.preventDefault();
+    const path = new URL(a.href);
+            window.history.pushState({position: history.state.position + 1},'', path);
+            render(path.pathname.toString());
+}
 
 
 wnds.forEach((elem, idx) => {
-  const a = elem as HTMLAnchorElement;
-  elem.addEventListener("click", (e) =>{
-
-    e.preventDefault();
-
-
-
-    const {pathname: path} = new URL(a.href);
-            window.history.pushState({path}, path, path);
-            render(path);
-  }, true);
+  elem.addEventListener("click", windowClick, true);
 })
 
 
-      
-
 const render = async(path:string) => {
 
-
+  // setTimeout(() => wnds.forEach((elem,idx) => {
+  //   elem.removeEventListener("click", windowClick, true);
+  // }),10);
       const work = await Routes(path);
-      
-      scaleCardRemoveRoot();
+      pageTransition(path);
+
       setTimeout(() => {
       var body = document.querySelector('body');
       body!.style.visibility = 'visible';
        body!.appendChild(work); 
-       Behaviour();
+       
       }, 2000);
+      setTimeout(()=> {
+        if(window.location.pathname !== '/'){
+          Behaviour();
+         }else{
+            subEvents();
+         }
+      },2001)
 }
         
 window.addEventListener("popstate", e =>{
-
-      render(new URL(window.location.href).pathname)
+  const historyPath = new URL(window.location.href).pathname;
+      render(historyPath);
     }
     );
-  // render("/");

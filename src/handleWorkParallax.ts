@@ -24,6 +24,7 @@ const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
         }, {duration:900, fill:'forwards'});
 
       })
+   console.log(nextPercentage)
 }
 
 
