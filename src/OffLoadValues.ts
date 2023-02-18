@@ -10,13 +10,13 @@ const Content = {
         productImage:["https://source.unsplash.com/HM-Y497t5CU","https://source.unsplash.com/HM-Y497t5CU"]
     },
     "two":{
-        backgroundImage:'./public/iPhone2.jpg',
+        backgroundImage:'/iPhone2.jpg',
         titleHeading:'Secont-Commerce',
         titleSubHeading:'2003',
-        overViewImage:'./public/iPhone2.jpg', 
+        overViewImage:'/iPhone2.jpg', 
         descriptionPara:["Lorem ipsum dolor sit amet consectetur adipiscing","elit Ut Aliquam in hendrerit urna. Pellentesque sit","amet sapien fringilla, mattisa","Done with my Self Cause you are my angel","don't wait cause you ", ],
         tools:["React","Figma","TailwindCss","React Router","ReactQuery"],
-        productImage:["./public/iPhone2.jpg","./public/iPhone2.jpg"]
+        productImage:["/iPhone2.jpg","/iPhone2.jpg"]
     },
     "three":{
         backgroundImage:'http://t2.gstatic.com/images?q=tbn:ANd9GcT887BhlZxtVFFnFpdm3UfuhRiPfArrqBc057f33k3lnIYB9xiE',
@@ -28,13 +28,13 @@ const Content = {
         productImage:["http://t2.gstatic.com/images?q=tbn:ANd9GcT887BhlZxtVFFnFpdm3UfuhRiPfArrqBc057f33k3lnIYB9xiE","http://t2.gstatic.com/images?q=tbn:ANd9GcT887BhlZxtVFFnFpdm3UfuhRiPfArrqBc057f33k3lnIYB9xiE"]
     },
     "four":{
-        backgroundImage:'./public/iphone-mockup.png',
+        backgroundImage:'/iphone-mockup.png',
         titleHeading:'Fourth-Commerce',
         titleSubHeading:'2005',
-        overViewImage:'./public/iphone-mockup.png', 
+        overViewImage:'/iphone-mockup.png', 
         descriptionPara:["Lorem ipsum dolor sit amet consectetur adipiscing","elit Ut Aliquam in hendrerit urna. Pellentesque sit","amet sapien fringilla, mattisa","Done with my Self Cause you are my angel","don't wait cause you ", ],
         tools:["React","Figma","TailwindCss","React Router","ReactQuery"],
-        productImage:["./public/iphone-mockup.png","./public/iphone-mockup.png"]
+        productImage:["/iphone-mockup.png","/iphone-mockup.png"]
     },
     "five":{
         backgroundImage:'https://source.unsplash.com/8TSqJoI-NVs',
