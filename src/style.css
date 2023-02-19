@@ -4,6 +4,7 @@
   --sub-heading-font-size: 1.25rem; /* change to 2vmins when size changes for tablet */
 
   --base-font-size: 1rem; /* change to 1.25vh when size changes for tablet */
+  --large-font: 128px;
 
   --base-font-weight: 400;
   --bold-font-weight: 700;
@@ -419,11 +420,23 @@ code{
   margin: 0 var(--x-margin) 0 var(--x-margin);
   display: flex;
   position: relative;
-  
+  padding-left: 1rem;
+}
+
+#title .heading::after{
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: var(--large-font);
+  transform: translate(0%,125%);
+  z-index: 10;
+  left: 0;
+  bottom: 0;
 }
 
 .heading{
-  font-size: 128px;
+  font-size: var(--large-font);
   line-height: 100px;
 }
 
@@ -495,16 +508,6 @@ code{
   }
 }
 
-#title::after{
-  content: "";
-  position: absolute;
-  background-color: white;
-  width: 90%;
-  height: 9rem;
-  transform: translate(-5%,145%);
-  z-index: 10;
-}
-
 .hidden{
   opacity: 0;
   transition-delay: 100ms;
@@ -532,6 +535,7 @@ code{
     --x-margin: 2rem;
     --nav-top-margin: 1.5rem;
     --sub-heading-font-size: var(--base-font-size);
+    --large-font: 2rem;
   }
 
 
@@ -573,6 +577,17 @@ code{
   .message-para p:last-child{
     margin-left: 0;
     padding-bottom: 16px;
+  }
+
+  #overview{
+    flex-direction: column;
+  }
+
+  .description p{
+    width: fit-content;
+  }
+  #back{
+    opacity: 0;
   }
 
 }

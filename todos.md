@@ -12,4 +12,4 @@
 
 -[ ] add logo hover::after effect
 
--[ ] responsivity for bigger or smaller window
+-[x] responsivity for bigger or smaller window
