@@ -17,14 +17,13 @@
   --nav-menu-margin: 1.75em;
 
   --nav-top-margin: 2.5rem ;
-  --message-top-margin: 3rem;
+  --message-top-margin: 5svh;
   --message-para-top-margin: 3.25rem;
 
   --card-margin: .5rem;
   --para-letter-spacing: 0.055rem;
 
   --card-width: 12.5rem;
-  --card-height: ;
   --card-border-radius: 8rem;
   --scroll-width: 0.375rem;
   --card-after-height:0;
@@ -107,8 +106,8 @@ body{
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100svh;
+  width: 100svw;
   font-weight: var(--bold-font-weight);
   max-width: 1920px;
 }
@@ -180,29 +179,6 @@ input[type="checkbox"] {
   user-select: none;
 }
 
-@media (max-width: 768px) {
-  .menu{
-    display: none;
-    position: absolute;
-    right: 0;
-    left: 0;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  .menu li:hover{
-    display: inline-block;
-    transition: 0.3s ease;
-  }
-  .menu li + li {
-    margin-top: .75rem;
-  }
-  input[type=checkbox]:checked ~ .menu{
-    display: block;
-  }
-  .hamburger{
-    display: block;
-  }
-}
 
 
 
@@ -223,24 +199,34 @@ input[type="checkbox"] {
 
 .message-para{
   display: flex;
-  gap: calc(49.440625vw - var(--x-margin) - 350px);  /* 350 is width of para*/
+  /* 350 is width of para*/
+  /* gap: calc(49.440625vw - var(--x-margin) - 350px);   */
   position: relative;
+  justify-content: space-between;
+  margin-top: var(--message-para-top-margin);
 }
 
 .message-para p{
   display: block;
-  margin-top: var(--message-para-top-margin);
-  width: 350px;
+  width: 40ch;
+  margin-right: auto;
   font-size: var(--base-font-size);
   font-weight: var(--bold-font-weight);
   line-height: var(--base-line-height);
   align-items: baseline;
-  height: 86px;
+  height: fit-content;
 }
 
+.message-para p:last-child {
+  margin-left: -1.4em;
+}
+
+
 .message-para p .connect{
+  display: block;
   position: absolute;
-  right: 2%;
+  right: 25px;
+  bottom: 0;
   font-size: var(--sub-heading-font-size);
 }
 
@@ -261,7 +247,7 @@ input[type="checkbox"] {
 .message-para p .connect::before{
   content: "";
   z-index: -1;
-  width: 105px;
+  width: 100%;
   height: 2px;
   background-color: black;
   transition: all 0.3s ease 0s;
@@ -391,7 +377,7 @@ input[type="checkbox"] {
 #work {
   width: 98%;
   height: 100%;
-  margin: 1vw;
+  margin: 1svw;
   font-weight: var(--bold-font-weight);
   display: flex;
   flex-direction: column;
@@ -409,12 +395,12 @@ code{
 }
 
 #background-image{
-  margin-top: 1vh;
+  margin-top: 1svh;
   position: relative;
-  height: 70vh;
+  height: 70svh;
   background-size: cover;
   background-position: center center;
-  border-radius: 1.5vw;
+  border-radius: 1.5svw;
   box-shadow: inset 0 -2px 4px 0 rgb(0 0 0 / 0.5);
 }
 
@@ -457,7 +443,7 @@ code{
 .content-section {
   display: flex;
   flex-direction: column;
-  margin: 8vw;
+  margin: 8svw;
   align-items: center;
 }
 
@@ -468,8 +454,8 @@ code{
 }
 
 #overview .overview-img{
-  width: 42vw;
-  border-radius: .5vw;
+  width: 42svw;
+  border-radius: .5svw;
 }
 
 .description p{
@@ -489,9 +475,9 @@ code{
 
 
 .product-img{
-  width: 60vw;
+  width: 60svw;
   margin-top: 25vh;
-  border-radius: 1vw;
+  border-radius: 1svw;
 }
 
 .fadeInUp{
@@ -529,8 +515,8 @@ code{
 }
 
 #transition-curtain{
-  width: 100vw;
-  height: 100vh;
+  width: 100svw;
+  height: 100svh;
   background-color: var(--base-accent-color);
   position: fixed;
   z-index: 100;
@@ -540,9 +526,63 @@ code{
   left: 0;
 }
 
+@media (max-width: 768px) {
+  :root{
+    --card-width:6rem;
+    --x-margin: 2rem;
+    --nav-top-margin: 1.5rem;
+    --sub-heading-font-size: var(--base-font-size);
+  }
+
+
+  .menu{
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .menu li:hover{
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+  .menu li + li {
+    margin-top: .75rem;
+  }
+  input[type=checkbox]:checked ~ .menu{
+    display: block;
+  }
+  .hamburger{
+    display: block;
+  }
+
+  .message-para{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .message-para p{
+    margin-top: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .message-para p:last-child{
+    margin-left: 0;
+    padding-bottom: 16px;
+  }
+
+}
 
 @media (min-width: 1920px) {
 :root{
   --card-width: 15rem;
 }
+
+.message-para p:last-child {
+  margin-left: -2em;
+  }
 }
