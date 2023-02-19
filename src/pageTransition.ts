@@ -2,6 +2,7 @@
 
 const temp = document.querySelector(':root') as HTMLElement;
 const body =  document.querySelector('body') as HTMLBodyElement;
+const app = document.querySelector('#app') as HTMLDivElement;
 
 
 function scaleThenShrinkCard(){
@@ -25,30 +26,19 @@ function scaleThenShrinkCard(){
 
 export function hideBodyTimeOut(after:number){
   setTimeout(() => {
-  body.style.visibility = 'hidden';
+    body.style.visibility = 'hidden';
   }, after)
+
+  setTimeout(() => {
+    body.style.visibility = 'visible';
+  }, 2000);
+ 
 }
 
 
-
-function clear(node:ChildNode) {
-  while (node.hasChildNodes()) {
-    clear(node.firstChild as ChildNode);
-  }
-  node.parentNode!.removeChild(node);
-}
-
-function clearInner(node:HTMLBodyElement) {
-  while (node.hasChildNodes()) {
-    clear(node.firstChild as ChildNode);
-  }
-}
-
-
-export function emptyBodyNodeTimeOut(after:number = 1800){
-  
+export function setAppDisplay( after:number = 1800){
     setTimeout(() => {
-      clearInner(body);
+      app.style.display = 'none';
     }, after)
 }
 
@@ -64,16 +54,16 @@ function maskTransition(){
 // 800-> hide, 1800->removeNode
 
 export default function pageTransition(){
- console.log(history.state);
 
-  if(history.state.position - 1 === 1){
-    scaleThenShrinkCard();
-    hideBodyTimeOut(800);
-    emptyBodyNodeTimeOut(1800);
-  }else{
+  // pathname to guard history.back() and position state to guard the within window transition
+  if(window.location.pathname === '/portfolio-2023/' || history.state.position > 2 ){
     maskTransition();
     hideBodyTimeOut(800);
-    emptyBodyNodeTimeOut(1800);
+    setAppDisplay(1800);
+  }else{
+    scaleThenShrinkCard();
+    hideBodyTimeOut(800);
+    setAppDisplay(1800);
   }
 
 }

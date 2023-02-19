@@ -15,32 +15,28 @@ function RenderData(name:RouteType):HTMLDivElement{
 export default function Routes(path: string):HTMLDivElement {
     let app;
         switch(path){
-             case '/':
-                 app = removedApp;
-                 break;
-             case '/one':
+             case '/portfolio-2023/one':
                 app = RenderData('one');
-
                 break;
-             case '/two':
+             case '/portfolio-2023/two':
                  app = RenderData('two');
                 break;
-             case '/three':
+             case '/portfolio-2023/three':
                  app = RenderData('three');
                 break;
-             case '/four':
+             case '/portfolio-2023/four':
                  app = RenderData('four');
                 break;
-             case '/five':
+             case '/portfolio-2023/five':
                  app = RenderData('five');
                 break;
-             case '/six':
+             case '/portfolio-2023/six':
                  app = RenderData('six');
                 break;
-             case '/seven':
+             case '/portfolio-2023/seven':
                  app = RenderData('seven');
                 break;
-             case '/eight':
+             case '/portfolio-2023/eight':
                  app = RenderData('eight');
                 break;
             default:

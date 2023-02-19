@@ -116,8 +116,6 @@ body{
 }
 
 
-
-
 /* Navbar styling start*/
 .navbar {
   overflow: hidden;
@@ -218,7 +216,7 @@ input[type="checkbox"] {
 }
 
 .message-heading{
-  content: url(/DESIGNER\ DEVELOPER.svg);
+  content: url(/DESIGNER_DEVELOPER.svg);
   background-repeat: no-repeat;
   width: 100%;
   height: fit-content;

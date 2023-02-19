@@ -4,14 +4,12 @@
 
 -[x] make cards responsive to width and device
 
--[x] make base text and sub-heading responsive
+-[x] provide max-width to make it responsive
 
--[ ] provide max-width to make it responsive
+-[x] Bug after history API that on rerender doesn't animate window; // changed the logic
+
+-[X] On reload after changing history goes to default app // possible solution to be make visibility hidden
 
 -[ ] add logo hover::after effect
 
--[ ] reset the track if moved using mouse movement
-
--[ ] Bug after history API that on rerender doesn't animate window;
-
--[ ] On reload after changing history goes to default app
+-[ ] responsivity for bigger or smaller window
