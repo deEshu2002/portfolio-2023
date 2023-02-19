@@ -17,7 +17,7 @@ function scaleThenShrinkCard(){
     }, 250)
   }
   
-  for (let i = 200; i > 0; i--) {
+  for (let i = 200; i >= 0; i--) {
     setTimeout(() => {
       temp.style.setProperty('--card-after-height', `${i}%`);
     }, 950)

@@ -6,10 +6,31 @@ const images = document.querySelectorAll<HTMLImageElement>('.work-preview img');
 
 
 
- function changeLayout(deltaPercentage:number,maxLeft:number=-15,maxRight:number=20){
+function getMaxMovement(){
+  let value:number;
+  let width = window.innerWidth;
+  if( width >= 1920){
+    value = 5;
+  }
+  else if(width >= 820){
+    value = 20;
+  }
+  else value = 50;
+
+  const maxLeft = -value;
+  const maxRight = value;
+
+  return {maxRight, maxLeft} as const;
+}
+
+
+ function changeLayout(deltaPercentage:number){
 
   const prevPercentage = track!.dataset.prevPercentage as string;
   const unconstrainedPercentage = deltaPercentage + parseInt(prevPercentage);
+
+  const {maxRight,maxLeft }= getMaxMovement();
+
   const nextPercentage = Math.max(Math.min(unconstrainedPercentage, maxRight), maxLeft);
   track!.dataset.percentage = `${nextPercentage}`;
 
@@ -39,7 +60,7 @@ export const handleUpEvent = () => {
 }
 
 
-export function  handleTrackMove(e:number, maxLeft:number, maxRight:number){
+export function  handleTrackMove(e:number){
   if(track!.dataset.mouseAt === '0' ) return;
 
   const initialTrack = track!.dataset.mouseAt as any; 
@@ -47,7 +68,7 @@ export function  handleTrackMove(e:number, maxLeft:number, maxRight:number){
 
   const deltaPercentage = delta*50;
 
-   changeLayout(deltaPercentage, maxLeft,maxRight);
+   changeLayout(deltaPercentage);
 
 
 }

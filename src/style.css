@@ -17,20 +17,18 @@
   --nav-menu-margin: 1.75em;
 
   --nav-top-margin: 2.5rem ;
-  --message-top-margin: 6.2vh;
+  --message-top-margin: 3rem;
   --message-para-top-margin: 3.25rem;
 
-  --card-margin: 1.375vw;
+  --card-margin: .5rem;
   --para-letter-spacing: 0.055rem;
 
-  --card-width: 14.1vw;
-  --card-height: 50vh;
+  --card-width: 12.5rem;
+  --card-height: ;
   --card-border-radius: 8rem;
   --scroll-width: 0.375rem;
   --card-after-height:0;
   --card-after-width:100%;
-
-  --title-x-margin:6vw;
 
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
@@ -284,22 +282,23 @@ input[type="checkbox"] {
 .work-preview{
   display: flex;
   flex-direction: row;
-  position:relative;
   justify-content: center;
-  gap: var(--card-margin);
-  margin-top: auto;
+  flex-grow: 1;
+  align-items: flex-end;
 }
 
 .window{
   position: relative;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   width: var(--card-width);
-  height: var(--card-height);
+  height: 100%;
+  max-height: 50vh;
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
   cursor: pointer;
-  bottom: 0;
   text-decoration: none;
+  margin: 0 var(--card-margin) 0 var(--card-margin);
 }
 
 .window::after{
@@ -315,7 +314,6 @@ input[type="checkbox"] {
 }
 
 .image{
-  /* position: absolute; */
   z-index: 9;
   width: inherit;
   height: inherit;
@@ -432,7 +430,7 @@ code{
 }
 
 #title{
-  margin: 0 var(--title-x-margin) 0 var(--title-x-margin);
+  margin: 0 var(--x-margin) 0 var(--x-margin);
   display: flex;
   position: relative;
   
@@ -540,4 +538,11 @@ code{
   transition: all .8s cubic-bezier(0.16, 1, 0.3, 1);
   top: 0;
   left: 0;
+}
+
+
+@media (min-width: 1920px) {
+:root{
+  --card-width: 15rem;
+}
 }
